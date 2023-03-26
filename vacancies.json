@@ -1,0 +1,110 @@
+[
+    {
+        "vacancy_name": "Разработчик Python",
+        "vacancy_url": "https://hh.ru/vacancy/78473911",
+        "vacancy_info": "Работка backend части программного обеспечения. Разработка внутренних библиотек. Оптимизация узких мест в основной архитектуре продукта.",
+        "vacancy_salary": "200000 - 250000"
+    },
+    {
+        "vacancy_name": "Python-разработчик (Django, DRF)",
+        "vacancy_url": "https://hh.ru/vacancy/70705466",
+        "vacancy_info": "Внимание: с командами не работаем, только с индивидуальными исполнителями. Профессиональный рост и участие в построении архитектур сложных систем.",
+        "vacancy_salary": "60000 - 220000"
+    },
+    {
+        "vacancy_name": "Python blockchain developer (удаленно)",
+        "vacancy_url": "https://hh.ru/vacancy/78233709",
+        "vacancy_info": null,
+        "vacancy_salary": "3000 - 5000"
+    },
+    {
+        "vacancy_name": "Программист/Python-разработчик",
+        "vacancy_url": "https://hh.ru/vacancy/77901810",
+        "vacancy_info": "Разработка сайтов. Создание сервисов на <highlighttext>Python</highlighttext>. Автоматизировать процессы сбора данных.",
+        "vacancy_salary": "50000 - 70000"
+    },
+    {
+        "vacancy_name": "Junior Data scientist (NLP)",
+        "vacancy_url": "https://hh.ru/vacancy/77502259",
+        "vacancy_info": "Классические задачи: классификация/тематическое моделирование, NER, NEL, semi supervised learning, задачи поиска. Все не так просто, так как объемы большие...",
+        "vacancy_salary": "100000 - 150000"
+    },
+    {
+        "vacancy_name": "Разработчик Python",
+        "vacancy_url": "https://hh.ru/vacancy/47668037",
+        "vacancy_info": "Разработка бэкенд новых SaaS проектов на <highlighttext>Python</highlighttext>. Поддержка, устранение проблем в ранее разработанном ПО совместно с командой. Рефакторинг и оптимизация...",
+        "vacancy_salary": "30000 - 80000"
+    },
+    {
+        "vacancy_name": "Разработчик C# / Python",
+        "vacancy_url": "https://hh.ru/vacancy/71147348",
+        "vacancy_info": "Разработка систем анализа, обработки и визуализации данных, в т.ч. Big data. Автоматизация бизнес-операций и интеграция с текущими процессами.",
+        "vacancy_salary": "300000 - 500000"
+    },
+    {
+        "vacancy_name": "Программист Python",
+        "vacancy_url": "https://hh.ru/vacancy/77800943",
+        "vacancy_info": "Участие в проектировании, разработке, тестировании модулей информационной системы и баз данных. Проведение инспекции и анализа кода перед релизом (Code Review). ",
+        "vacancy_salary": 1100000
+    },
+    {
+        "vacancy_name": "Python разработчик",
+        "vacancy_url": "https://hh.ru/vacancy/78016944",
+        "vacancy_info": "Разработка web-проектов на Flask, Django. Разработка парсеров, чат-ботов.",
+        "vacancy_salary": "25000 - 25000"
+    },
+    {
+        "vacancy_name": "Python Middle+/Senior Developer",
+        "vacancy_url": "https://hh.ru/vacancy/77407510",
+        "vacancy_info": "Разработкой архитектуры, поддержкой, развитием и оптимизацией проектов. Проектированием и развитием архитектуры баз данных. Разработкой новой функциональности и улучшением имеющейся. ",
+        "vacancy_salary": "300000 - 480000"
+    },
+    {
+        "vacancy_name": "Python Backend Developer / WEB - разработчик",
+        "vacancy_url": "https://hh.ru/vacancy/72216524",
+        "vacancy_info": "Обязанности web-разработка, 85% backend / 15% database.",
+        "vacancy_salary": "300000 - 450000"
+    },
+    {
+        "vacancy_name": "Стажер-программист/разработчик Python",
+        "vacancy_url": "https://hh.ru/vacancy/78541506",
+        "vacancy_info": "Участие в написании Backend проекта корпоративного приложения. Написание на <highlighttext>Python</highlighttext> телеграм ботов и скриптов парсинга. Выполнение поручений ведущего программиста <highlighttext>Python</highlighttext>.",
+        "vacancy_salary": "1000 - 1000"
+    },
+    {
+        "vacancy_name": "Python разработчик",
+        "vacancy_url": "https://hh.ru/vacancy/77487743",
+        "vacancy_info": "Доработка/усовершенствование существующего API. Разработка новых компонентов.",
+        "vacancy_salary": "100000 - 100000"
+    },
+    {
+        "vacancy_name": "Python разработчик",
+        "vacancy_url": "https://hh.ru/vacancy/75436252",
+        "vacancy_info": "Проектирование архитектуры сервисов, API. Разработка бизнес логики. Оптимизация кода.",
+        "vacancy_salary": "100000 - 100000"
+    },
+    {
+        "vacancy_name": "Python developer (remote)",
+        "vacancy_url": "https://hh.ru/vacancy/78537820",
+        "vacancy_info": "Competitive salary. Rapid growth and exceptional bonuses. Global product with traction growing 20% weekly. International experienced team (ex McKinsey, hedge...",
+        "vacancy_salary": "1000 - 1000"
+    },
+    {
+        "vacancy_name": "Python developer (remote)",
+        "vacancy_url": "https://hh.ru/vacancy/78537821",
+        "vacancy_info": "Competitive salary. Rapid growth and exceptional bonuses. Global product with traction growing 20% weekly. International experienced team (ex McKinsey, hedge...",
+        "vacancy_salary": "1000 - 1000"
+    },
+    {
+        "vacancy_name": "Senior Python разработчик",
+        "vacancy_url": "https://hh.ru/vacancy/77179552",
+        "vacancy_info": null,
+        "vacancy_salary": "300000 - 300000"
+    },
+    {
+        "vacancy_name": "IT разработчик",
+        "vacancy_url": "https://hh.ru/vacancy/78324983",
+        "vacancy_info": "Разработка сайта краудлендинговой платформы. Написание алгоритма скоринга. Создание базы данных платформы. Составление ТЗ, контроль исполнения. Функции PM, Data Scientist.",
+        "vacancy_salary": 30000
+    }
+]
