@@ -45,8 +45,6 @@ class Vacancy:
                 }
             )
 
-        with open(f"{path}.json", 'w', encoding='utf-8') as file:
-            file.write(json.dumps(vacansy_json, indent=4, ensure_ascii=False))
 
         
 
