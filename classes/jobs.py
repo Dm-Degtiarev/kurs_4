@@ -15,20 +15,27 @@ class Vacancy:
     def __str__(self):
         return f"Название: {self.name}; Зарплата: {self.salary}"
 
+    def __repr__(self):
+        return f"Название: {self.name}; Зарплата: {self.salary}"
+
     @classmethod
     def instantiate_from_api(cls, vacancy):
         """Добавляет объект в список объектов класса"""
         cls.vacancy_list.append(vacancy)
 
     @staticmethod
-    def salary_reformat(min, max):
-        """меняет формат ЗП на формат:"от - до" """
-        if min is None:
-            return max
-        elif max is None:
-            return f"{min} - {min}"
+    def salary_reformat(salary):
+        """
+        Возвращет: если ЗП не указана - NULL,
+        если есть макс. зарплата - максимальная заррплата
+        если нет макс. зарплаты - минимальная зарплата
+        """
+        if salary is None:
+            return 0
+        elif salary['to'] is not None:
+            return salary['to']
         else:
-            return f"{min} - {max}"
+            return salary['from']
 
     @classmethod
     def save_to_json(cls, path='vacancies'):
@@ -41,9 +48,12 @@ class Vacancy:
                     "vacancy_name": i.name,
                     "vacancy_url": i.url,
                     "vacancy_info": i.description,
-                    "vacancy_salary": i.salary
+                    "vacancy_salary": cls.salary_reformat(i.salary)
                 }
             )
+
+            with open(f"{path}.json", "w", encoding='utf-8') as file:
+                file.write(json.dumps(vacansy_json, indent=4, ensure_ascii=False))
 
 
         

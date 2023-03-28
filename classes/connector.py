@@ -43,5 +43,7 @@ class Connector:
         и вернуть все строки, в которых цена 1000
         """
         with open(self.__data_file, 'r', encoding='utf-8') as file:
-            existing_data = json.load(f)
+            existing_data = json.load(file)
         return existing_data
+
+

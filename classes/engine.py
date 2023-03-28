@@ -32,13 +32,7 @@ class HH(Engine):
         return response
 
 
-
 class SuperJob(Engine):
     def get_request(self):
         pass
-
-
-
-# x = HH()
-# print(x.get_request(5, 'Python-developer', 'Python developer'))
 
