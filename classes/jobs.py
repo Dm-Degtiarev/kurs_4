@@ -5,6 +5,7 @@ class Vacancy:
     # __slots__ = ...
     vacancy_list = []
 
+
     def __init__(self, name='NULL', url='NULL', description='NULL', salary='NULL'):
         """Инициализация: наим. вакансии, url, описание, ЗП"""
         self.name = name
@@ -23,6 +24,27 @@ class Vacancy:
         """Добавляет объект в список объектов класса"""
         cls.vacancy_list.append(vacancy)
 
+
+    @classmethod
+    def save_to_json(cls, path='vacancies'):
+        """Создает JSON на основе списка объекетов текущего класса"""
+        vacansy_json = []
+
+        for i in cls.vacancy_list:
+            vacansy_json.append(
+                {
+                    "vacancy_name": i.name,
+                    "vacancy_url": i.url,
+                    "vacancy_info": i.description,
+                    "vacancy_salary": i.salary
+                }
+            )
+
+        with open(f"{path}.json", "w", encoding='utf-8') as file:
+            file.write(json.dumps(vacansy_json, indent=4, ensure_ascii=False))
+
+
+class HHVacancy(Vacancy):
     @staticmethod
     def salary_reformat(salary):
         """
@@ -30,6 +52,7 @@ class Vacancy:
         если есть макс. зарплата - максимальная заррплата
         если нет макс. зарплаты - минимальная зарплата
         """
+
         if salary is None:
             return 0
         elif salary['to'] is not None:
@@ -52,8 +75,15 @@ class Vacancy:
                 }
             )
 
-            with open(f"{path}.json", "w", encoding='utf-8') as file:
-                file.write(json.dumps(vacansy_json, indent=4, ensure_ascii=False))
+        with open(f"{path}.json", "w", encoding='utf-8') as file:
+            file.write(json.dumps(vacansy_json, indent=4, ensure_ascii=False))
+
+class SJVacancy(Vacancy):
+    pass
+
+
+
+
 
 
         
