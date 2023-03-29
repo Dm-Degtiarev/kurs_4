@@ -12,7 +12,12 @@ def top_10_vacancies(vacancies):
 
     index = 1
     for vacancy in vacancies[0:10]:
-        print(f'{index}. {vacancy}')
+        print(f"""\n---{index}---
+        Наименование вакансии: {vacancy['vacancy_name']}
+        URL вакансии: {vacancy['vacancy_url']}
+        Описание вакансии: {vacancy['vacancy_info']}
+        Зарплата: {vacancy['vacancy_salary']}""")
+
         index +=1
 
     return vacancies[0:10]
