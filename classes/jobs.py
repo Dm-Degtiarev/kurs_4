@@ -2,9 +2,9 @@ import json
 
 
 class Vacancy:
-    # __slots__ = ...
+    """Вакансии (общее)"""
+    __slots__ = ('name', 'url', 'description', 'salary')
     vacancy_list = []
-
 
     def __init__(self, name='NULL', url='NULL', description='NULL', salary='NULL'):
         """Инициализация: наим. вакансии, url, описание, ЗП"""
@@ -14,9 +14,11 @@ class Vacancy:
         self.salary = salary
 
     def __str__(self):
+        """Выводит инфо о объекте класс в формате: Название вакакнсии, Зарплата"""
         return f"Название: {self.name}; Зарплата: {self.salary}"
 
     def __repr__(self):
+        """Выводит инфо о объекте класс в формате: Название вакакнсии, Зарплата (тех.)"""
         return f"Название: {self.name}; Зарплата: {self.salary}"
 
     @classmethod
@@ -45,6 +47,9 @@ class Vacancy:
 
 
 class HHVacancy(Vacancy):
+    """Вакансии HH"""
+    __slots__ = Vacancy.__slots__
+
     @staticmethod
     def salary_reformat(salary):
         """
@@ -52,7 +57,6 @@ class HHVacancy(Vacancy):
         если есть макс. зарплата - максимальная заррплата
         если нет макс. зарплаты - минимальная зарплата
         """
-
         if salary is None:
             return 0
         elif salary['to'] is not None:
@@ -78,8 +82,10 @@ class HHVacancy(Vacancy):
         with open(f"{path}.json", "w", encoding='utf-8') as file:
             file.write(json.dumps(vacansy_json, indent=4, ensure_ascii=False))
 
+
 class SJVacancy(Vacancy):
-    pass
+    """Вакансии SuperJob"""
+    __slots__ = Vacancy.__slots__
 
 
 

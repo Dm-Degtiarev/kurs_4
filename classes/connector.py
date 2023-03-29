@@ -1,5 +1,5 @@
 import json
-
+from classes.engine import *
 
 class Connector:
     """
@@ -11,10 +11,12 @@ class Connector:
 
     @property
     def data_file(self):
+        """геттер для data_file"""
         return self.__data_file
 
     @data_file.setter
     def data_file(self, value):
+        """сеттер для data_file"""
         self.__data_file = value
         self.__connect()
 
@@ -46,4 +48,45 @@ class Connector:
             existing_data = json.load(file)
         return existing_data
 
+    def insert(self, value: dict):
+        """
+        Запись данных в файл с сохранением структуры и исходных данных;
+        Если вводится пустой словарь - данные не записываются;
+        Если ввоодится не словарь - программа возвращает исключение.
+        """
+        if value.__class__.__name__ != 'dict':
+            raise "класс добавляемого объекта должен быть 'dict'"
+        elif value == {}:
+            pass
+        else:
+            with open(self.__data_file, 'r', encoding='utf-8') as file:
+                existing_data = json.load(file)
+            existing_data.append(value)
 
+            with open(self.__data_file, "w", encoding='utf-8') as file:
+                json.dump(existing_data, file, indent=4, ensure_ascii=False)
+
+
+    def delete(self, query):
+        """
+        Удаление записей из файла, которые соответствуют запрос,
+        как в методе select. Если в query передан пустой словарь, то
+        функция удаления не сработает
+        """
+        with open(self.__data_file, 'r', encoding='utf-8') as file:
+            existing_data = json.load(file)
+        try:
+            existing_data.remove(query)
+        except ValueError:
+            pass
+
+        with open(self.__data_file, "w", encoding='utf-8') as file:
+            json.dump(existing_data, file, indent=4, ensure_ascii=False)
+
+#Тест
+if __name__ == '__main__':
+    print(HH().get_connector().select())
+    HH().get_connector().insert({"1": 1})
+    HH().get_connector().insert({"2": 2})
+    HH().get_connector().delete({'2': 2})
+    HH().get_connector().insert(1)

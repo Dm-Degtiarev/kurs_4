@@ -1,51 +1,30 @@
-import requests
-import json
-import time
-from classes.engine import HH, SuperJob
-from classes.jobs import HHVacancy, SJVacancy
-from classes.connector import Connector
-from utils import top_10_vacancies
+from utils import *
 
 
-def hh():
-    page = 0
+def mypy():
+    """
+    Представляет пользователю выбрать сервис поиска вакансий;
+    Формирует файл с вакансиями по заданным от пользователя ключевым словам;
+    Выводит в консоль 10 самых высокооплачиваемых вакансий из списка;
+    Возвращает список из 10 высокооплачиваемых вакансий.
+    """
+    inp_service = int(input('Добрый день! Выберите сервис: HH - введите 1, SuperJob - введите 2\n'))
+    if inp_service not in (1, 2):
+        print('Введено некорректное значение. Повторите ввод сначала')
+        mypy()
+    inp_keywords = str(input('Введите, через заяптую, ключевые слова по которым будет проходить поиск вакансий\n' ))
 
-    for cicles in range(10):
-
-        for vacancy in HH().get_request(page, 'Python')['items']:
-            HHVacancy.instantiate_from_api(HHVacancy(
-                vacancy['name'],
-                vacancy['alternate_url'],
-                vacancy['snippet']['responsibility'],
-                vacancy['salary']
-                )
-            )
-        page += 1
-
-
-    HHVacancy.save_to_json('HH_vacancies')
-    z = HH().get_connector().select()
-    print(top_10_vacancies(z))
+    if inp_service == 1:
+        print('10 самых высокооплачиваемых вакансий по запросу: ')
+        hh(inp_keywords)
+        print('Файл vacancies.json создан!')
+    elif inp_service == 2:
+        print('Загружаю 10 самых высокооплачиваемых вакансий по запросу: ')
+        super_job(inp_keywords)
+        print('Файл vacancy.json создан!')
+    else:
+        print('Произошла ошибка. Закрытие программы ...')
 
 
-def super_job():
-    page = 0
-    for cicles in range(10):
-        for vacancy in SuperJob().get_request(page, 'Python', 'C++')['objects']:
-            SJVacancy.instantiate_from_api(SJVacancy(
-                vacancy['profession'],
-                vacancy['link'],
-                vacancy['vacancyRichText'],
-                vacancy['payment_to']
-                )
-            )
-        page += 1
-
-    SJVacancy.save_to_json('vacancies')
-    z = SuperJob().get_connector().select()
-    top_10_vacancies(z)
-
-# hh()
-super_job()
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    mypy()
