@@ -1,4 +1,6 @@
 from utils import *
+from classes.connector import Connector
+# from classes.engine import Engine
 
 
 def mypy():
@@ -24,6 +26,19 @@ def mypy():
         print('Файл vacancy.json создан!')
     else:
         print('Произошла ошибка. Закрытие программы ...')
+
+    inp_agreement = int(input('\nВы хотите выполнить поиск вакансий по заданному слову? Если да введите - 1, если нет - 0\n'))
+    if inp_agreement == 1:
+        inp_attr = int(input('По какому атрибуту вы хотите произвести поиск? Введите: 1 - vacancy_name, 2 - vacancy_url, '
+                             '3 - vacancy_info, 4 - vacancy_salary\n'))
+        inp_keyword = str(input('Введите ключевое слово поиска:\n'))
+        vacancy_attr = return_vacancy_attr(inp_attr)
+
+        x = HH().get_connector().sorted(vacancy_attr, inp_keyword)
+        vacancy_list_reformat(x)
+
+    else:
+        pass
 
 
 if __name__ == '__main__':
