@@ -7,15 +7,34 @@ from classes.connector import Connector
 
 
 def top_10_vacancies(vacancies):
-    """Возвращает 10 самых высокооплачиваемых вакансий а так же выводит их в консоль"""
+    """Выводит в консоль 10 самых высокооплачиваемых вакансий """
     vacancies.sort(key=lambda sort: sort['vacancy_salary'], reverse=True)
+    vacancy_list_reformat(vacancies[0:10])
 
+def vacancy_list_reformat(list):
+    "Выводит вакансии в читабельном виде"
     index = 1
-    for vacancy in vacancies[0:10]:
-        print(f'{index}. {vacancy}')
-        index +=1
+    for vacancy in list:
+        print(f"""\n---{index}---
+        Наименование вакансии: {vacancy['vacancy_name']}
+        URL вакансии: {vacancy['vacancy_url']}
+        Описание вакансии: {vacancy['vacancy_info']}
+        Зарплата: {vacancy['vacancy_salary']}""")
 
-    return vacancies[0:10]
+        index += 1
+
+def return_vacancy_attr(code):
+    """Возвращает наименование атрибута по коду"""
+    if code == 1:
+        return 'vacancy_name'
+    elif code == 2:
+        return 'vacancy_url'
+    elif code == 3:
+        return 'vacancy_info'
+    elif code == 4:
+        return 'vacancy_salary'
+    else:
+        print('Введен некорректный код атрибута')
 
 def hh(vacancies):
     """

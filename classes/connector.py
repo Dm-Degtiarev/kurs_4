@@ -83,10 +83,51 @@ class Connector:
         with open(self.__data_file, "w", encoding='utf-8') as file:
             json.dump(existing_data, file, indent=4, ensure_ascii=False)
 
+
+    def sorted(self, attr, keyword):
+        with open(self.__data_file, 'r', encoding='utf-8') as file:
+            existing_data = json.load(file)
+        vacancies = []
+
+        for i in existing_data:
+            try:
+                if keyword.lower() in i[attr].lower():
+                    vacancies.append(i)
+                else:
+                    continue
+            except AttributeError:
+                continue
+
+        return vacancies
+
+
+
+
 #Тест
-if __name__ == '__main__':
-    print(HH().get_connector().select())
-    HH().get_connector().insert({"1": 1})
-    HH().get_connector().insert({"2": 2})
-    HH().get_connector().delete({'2': 2})
-    HH().get_connector().insert(1)
+# if __name__ == '__main__':
+#     print(HH().get_connector().select())
+#     HH().get_connector().insert({"1": 1})
+#     HH().get_connector().insert({"2": 2})
+#     HH().get_connector().delete({'2': 2})
+#     HH().get_connector().insert(1)
+
+# def main(attr, keyword):
+#     with open('vacancies.json', 'r', encoding='utf-8') as file:
+#         existing_data = json.load(file)
+#
+#     vacancies = []
+#
+#     for i in existing_data:
+#         try:
+#             if keyword.lower() in i[attr].lower():
+#                 vacancies.append(i)
+#             else:
+#                 continue
+#         except AttributeError:
+#             continue
+#
+#     return vacancies
+#
+# print(main('vacancy_url', 'python'))
+# existing_data.sort(key=lambda sort: sort['vacancy_salary'], reverse=True)
+# print(existing_data)
